@@ -8,7 +8,8 @@ sentiment_pipeline = pipeline(
 def sentiment(text: str) -> dict:
     result = sentiment_pipeline(text)[0]
     score = round(result["score"], 2)
-    label = int(result["label"].split()[0])
+    #label = int(result["label"].split()[0])
+    label = int(result["label"].split("_")[-1]) # Berci által módosított sor. A fenti volt az eredeti,de nekem valmiért hibát dobott
 
     match label:
         case 0:
