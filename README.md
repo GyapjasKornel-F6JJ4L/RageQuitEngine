@@ -28,3 +28,17 @@ Teljesen ingyenes, nyílt forráskódú modelleket láncoltunk össze:
 1. **1. Motor (Toxicitás szűrés):** Hugging Face Transformer modell, ami kiszűri a trágárságot és a gyűlöletbeszédet. *Teljesen ingyenes, helyben fut.*
 2. **2. Motor (Hangulatelemzés):** Egy nyílt forráskódú Sentiment Analysis modell, ami megvizsgálja a szöveg érzelmi töltetét és feszültségét. *Ingyenes, offline fut.*
 3. **3. Motor (LLM Döntéshozó):** **Ollama** segítségével lokálisan futtatott kis nyelvi modell, ami az előző két motor eredményeit összeveti, és generál egy emberi nyelvű indoklást + döntési javaslatot. *Költségmentes, helyi futtatás.*
+
+## 💻 Telepítés és Szükséges Csomagok
+
+### 1. Előfeltételek
+* **Python 3.10+**
+* **Ollama** (letölthető az [ollama.com](https://ollama.com) oldalról)
+  * Telepítés után futtasd terminálban a Llama 3 letöltéséhez:  
+    `ollama run llama3`
+
+### 2. Python csomagok telepítése
+A projektben használt könyvtárak (`transformers`, `torch`, `streamlit`, `requests`):
+
+```bash
+pip install -r requirements.txt
