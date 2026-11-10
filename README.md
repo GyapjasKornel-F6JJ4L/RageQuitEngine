@@ -34,11 +34,20 @@ Teljesen ingyenes, nyílt forráskódú modelleket láncoltunk össze:
 ### 1. Előfeltételek
 * **Python 3.10+**
 * **Ollama** (letölthető az [ollama.com](https://ollama.com) oldalról)
-  * Telepítés után futtasd terminálban a Llama 3 letöltéséhez:  
-    `ollama run llama3`
+  * Telepítés után futtasd terminálban a QWEN3 letöltéséhez:  
+    `ollama pull qwen3:4b`
+  * Modell ellenőrzéséhez:
+    `ollama list`
+  * Letöltés után futtasd a terminálban a QWEN3 elindításához
+    `ollama start qwen3:4b`
 
 ### 2. Python csomagok telepítése
 A projektben használt könyvtárak (`transformers`, `torch`, `streamlit`, `requests`):
 
 ```bash
 pip install -r requirements.txt
+```
+### 3. A Streamlit alkalmazás indítása
+```bash
+python -m streamlit  run main.py
+```
