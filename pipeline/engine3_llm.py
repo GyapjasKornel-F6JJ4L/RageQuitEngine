@@ -68,6 +68,7 @@ def moderate_comment(text: str) -> dict:
         ],
         "stream": False,
         "format": "json",
+        "think": False,
         "options": {
             "temperature": 0
         }
