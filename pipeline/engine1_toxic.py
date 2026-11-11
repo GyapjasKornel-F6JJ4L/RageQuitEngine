@@ -1,36 +1,32 @@
 from transformers import pipeline
 
+
 class ToxicityEngine:
     def __init__(self):
         # Betoltjuk a modellt a hugging face-rol
-        self.pipe = pipeline("text-classification", model="unitary/toxic-bert", top_k=None)
+        self.pipe = pipeline("text-classification", model="unitary/multilingual-toxic-xlm-roberta", use_fast=False)
 
     def evaluate(self, text):
         if not text:
             return {"score": 0.0, "level": "alacsony", "details": {}}
 
-        # Futtatas
+       # Futtatas
         eredmeny = self.pipe(text)[0]
         
-        # Pontszamok osszegyujtese
-        details = {}
-        for elem in eredmeny:
-            kategoria = elem["label"]
-            pont = round(float(elem["score"]), 4)
-            details[kategoria] = pont
+        # Pontszam kiolvasasa (mennyire toxic a komment)
+        score = round(float(eredmeny["score"]), 4)
+        details = {eredmeny["label"].lower(): score}
 
-        toxic_score = details.get("toxic", 0.0)
-
-        # Besorolas a kuszobok alapjan
-        if toxic_score < 0.3:
+        # Besorolas sulyossag alapjan
+        if score < 0.3:
             level = "alacsony"
-        elif toxic_score < 0.7:
+        elif score < 0.35:
             level = "közepes"
         else:
             level = "magas"
 
         return {
-            "score": toxic_score,
+            "score": score,
             "level": level,
             "details": details
         }
@@ -38,5 +34,5 @@ class ToxicityEngine:
 
 if __name__ == "__main__":
     motor = ToxicityEngine()
-    proba = motor.evaluate("You are completely useless and I hate you!")
+    proba = motor.evaluate("Te egy rohadt idióta faszkalap vagy, takarodj innen!")
     print(proba)
