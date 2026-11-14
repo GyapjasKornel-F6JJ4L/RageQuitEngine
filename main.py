@@ -1,7 +1,6 @@
 # Indításhoz 'python -m streamlit run main.py'
 import streamlit as st
-from pipeline.engine2_sentiment import sentiment
-from pipeline.engine3_llm import moderate_comment
+from pipeline.decision import analyze_comment
 
 
 
@@ -44,19 +43,21 @@ if st.button("Elemzés indítása", type="primary"):
         st.warning("Kérlek, írj be egy kommentet!")
     else:
         with st.spinner("A modellek betöltése és az elemzés folyamatban..."):
-            # Engine 2 - Sentiment
-            sentiment_result = sentiment(comment_input.strip())
-            # Engine 3 - LLM Moderáció
-            moderation_result = moderate_comment(comment_input.strip())
+           result = analyze_comment(comment_input.strip())
         # Eredmények
         st.markdown("---")
+        st.subheader("📊 Toxicity elemzés")
+        st.write("Toxicity pontszám:", result["toxicity"]["score"])
+        st.write("Besorolás:", result["toxicity"]["level"])
+        st.markdown("---")
         st.subheader("📊 Sentiment elemzés")
-        st.write("Hangulat:", sentiment_result["mood"])
-        st.write("Pontszám:", sentiment_result["score"])
+        st.write("Hangulat:", result["sentiment"]["mood"])
+        st.write("Pontszám:", result["sentiment"]["score"])
         st.markdown("---")
         st.subheader("🤖 LLM moderáció")
+        moderation_result = result["moderation"]
         # Moderációs döntés
-        decision = moderation_result["decision"]
+        decision = result["decision"]
         if decision == "DELETE":
             st.error("🚫 A komment törlésre javasolt!")
         elif decision == "ALLOW":

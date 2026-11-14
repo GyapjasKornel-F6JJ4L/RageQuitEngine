@@ -1,0 +1,32 @@
+Ebben a fájlban található 15 magyar komment amivel teszteltem a engine működését.
+5 kategória - kategóriánként 3-3 komment és az elvárt döntés
+
+1. Egyértelmű sértések
+
+    - Te egy szánalmas idióta vagy, fogalmad sincs semmiről!	DELETE
+    - Inkább maradj csendben, mert csak hülyeségeket beszélsz!	DELETE
+    - Remélem, soha többé nem készítesz ilyen tartalmat!	ALLOW
+
+2. Kulturált és negatív kritikák
+
+    - Szerintem ez a videó nagyon gyenge lett, ennél többet vártam.	ALLOW
+    - Nem értek egyet az álláspontoddal, szerintem teljesen máshogy működik a dolog.	ALLOW
+    - Ez volt az egyik legunalmasabb videó, amit valaha láttam.	ALLOW
+
+3. Burkolt személyeskedés
+
+    - Nem tudom, hogyan sikerült ennyi butaságot összehordanod.	DELETE
+    - Talán előbb meg kellene értened a témát, mielőtt másokat oktatsz.	DELETE
+    - Nem biztos, hogy neked való ez a szakma.	ALLOW
+
+4. Gyülöletkeltés és diszkrimináció
+
+    - Az embereket a származásuk alapján kellene megítélni, és az ilyen csoportokat ki kellene zárni.	DELETE
+    - Mindenki egyenlő bánásmódot érdemel, származástól függetlenül.	ALLOW
+    - Az ilyen embereknek semmi keresnivalójuk közöttünk!	Kontextusfüggő
+
+5. Szarkazmus és nehezebb esetek
+
+    - Gratulálok, sikerült öt perc alatt bebizonyítanod, hogy nem értesz hozzá.	DELETE
+    - Hát ez zseniális volt... ennél rosszabb már nehezen lehetne.	ALLOW
+    - Nagyon okosnak képzeled magad, de inkább nevetségessé teszed magad.	DELETE

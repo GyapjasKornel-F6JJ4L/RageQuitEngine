@@ -42,7 +42,7 @@ Teljesen ingyenes, nyílt forráskódú modelleket láncoltunk össze:
     `ollama start qwen3:4b`
 
 ### 2. Python csomagok telepítése
-A projektben használt könyvtárak (`transformers`, `torch`, `streamlit`, `requests`):
+A projektben használt könyvtárak (`transformers`, `torch`, `streamlit`, `requests`, `sentencepiece`,`tiktoken`):
 
 ```bash
 pip install -r requirements.txt
