@@ -10,9 +10,9 @@ Ezt a projektet egyetemi beadandóként, csapatban készítjük. A célunk az vo
 ---
 
 ## 👥 A Csapat
-* Dr. Fekete József (WXZS41)– 
-* Jobbágy Bertalan (IQGE2B) – 
-* Gyapjas Kornél (F6JJ4L) – 
+* Dr. Fekete József (WXZS41)– 1.motor Toxicity
+* Jobbágy Bertalan (IQGE2B) – 3.motor LLM Döntéshozó
+* Gyapjas Kornél (F6JJ4L) – 2.motor Sentiment
 
 ---
 
